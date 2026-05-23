@@ -1,0 +1,18 @@
+name: Build APK
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: |
+          sudo apt install -y git zip unzip openjdk-17-jdk python3-pip libtool automake autoconf
+          pip install buildozer cython
+      - name: Build APK
+        run: |
+          echo "y" | buildozer android debug
+      - uses: actions/upload-artifact@v3
+        with:
+          name: remoteagent-apk
+          path: bin/*.apk
