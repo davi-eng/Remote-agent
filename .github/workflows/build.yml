@@ -7,7 +7,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Install dependencies
         run: |
-          sudo apt install -y git zip unzip openjdk-17-jdk python3-pip libtool automake autoconf
+          sudo apt install -y git zip unzip openjdk-17-jdk python3-pip libtool automake autoconf libltdl-dev
           pip install buildozer cython
       - name: Build APK
         run: |
