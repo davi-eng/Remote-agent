@@ -12,7 +12,7 @@ jobs:
       - name: Build APK
         run: |
           echo "y" | buildozer android debug
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: remoteagent-apk
           path: bin/*.apk
